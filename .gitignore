@@ -1,0 +1,18 @@
+# Bỏ qua các thư mục phổ biến của framework và build
+node_modules/
+dist/
+build/
+venv/
+.env
+*.pyc
+__pycache__/
+*.log
+.DS_Store
+*.exe
+*.dll
+*.class
+.idea/
+.vscode/
+*.iml
+
+# Thêm các thư mục/framework khác bạn muốn bỏ qua ở đây

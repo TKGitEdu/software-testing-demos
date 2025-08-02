@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "appium": "^2.19.0",
+    "codeceptjs": "^3.7.3",
+    "webdriverio": "^9.15.0"
+  },
+  "devDependencies": {
+    "@codeceptjs/configure": "^1.0.4",
+    "@types/node": "^24.0.1",
+    "appium-uiautomator2-driver": "^4.2.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}

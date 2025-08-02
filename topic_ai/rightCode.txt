@@ -1,0 +1,37 @@
+// Feature('tam');
+
+// Scenario('test something',  ({ I }) => {
+//  I.amOnPage('https://getbootstrap.com/docs/5.1/examples/checkout/')
+//  pause()
+// });
+Feature('tam');
+
+Scenario('test something', async ({ I }) => {
+  await I.amOnPage('https://getbootstrap.com/docs/5.1/examples/checkout/');
+
+  // Fill in personal information
+  await I.fillField('#firstName', 'John');
+  await I.fillField('#lastName', 'Doe');
+  await I.fillField('#username', 'johndoe');
+  await I.fillField('#email', 'john@example.com');
+
+  // Fill in address information
+  await I.fillField('#address', '1234 Main St');
+  await I.fillField('#address2', 'Apt 101');
+
+  // Fill in country and state
+  await I.selectOption('#country', 'United States');
+  await I.selectOption('#state', 'California');
+
+  await I.fillField('#zip', '12345');
+
+  // Fill in payment information
+  await I.checkOption('#credit');  // Select credit card payment       
+  await I.fillField('#cc-name', 'John Doe');
+  await I.fillField('#cc-number', '4111111111111111');
+  await I.fillField('#cc-expiration', '12/2025');
+  await I.fillField('#cc-cvv', '123');
+
+  // Submit the form
+  await I.click('Continue to checkout');
+});

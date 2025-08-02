@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Date Checker</title>
+</head>
+<body>
+  <h1>Date Checker</h1>
+  <input id="day" placeholder="Day" />
+  <input id="month" placeholder="Month" />
+  <input id="year" placeholder="Year" />
+  <button id="checkBtn">Check Date</button>
+  <p id="result"></p>
+
+  <script>
+    document.getElementById('checkBtn').onclick = async () => {
+      const dayInput = document.getElementById('day').value;
+      const monthInput = document.getElementById('month').value;
+      const yearInput = document.getElementById('year').value;
+
+      // Chuyển đổi sang số và kiểm tra đầu vào cơ bản
+      const day = parseInt(dayInput, 10);
+      const month = parseInt(monthInput, 10);
+      const year = parseInt(yearInput, 10);
+
+      if (isNaN(day) || isNaN(month) || isNaN(year)) {
+        document.getElementById('result').innerText = 'Invalid input: Please enter numbers';
+        return;
+      }
+
+      try {
+        const res = await fetch('http://127.0.0.1:3000/check-date', { // Sử dụng 127.0.0.1 cho nhất quán
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ day, month, year })
+        });
+        if (!res.ok) throw new Error('Failed to check date');
+        const data = await res.json();
+        document.getElementById('result').innerText = data.message;
+      } catch (error) {
+        document.getElementById('result').innerText = `Error: ${error.message}`;
+        console.error('Fetch error:', error);
+      }
+    };
+  </script>
+</body>
+</html>
