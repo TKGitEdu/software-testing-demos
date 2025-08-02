@@ -14,5 +14,5 @@ __pycache__/
 .idea/
 .vscode/
 *.iml
-
+topic_ai/key_ai.txt
 # Thêm các thư mục/framework khác bạn muốn bỏ qua ở đây
